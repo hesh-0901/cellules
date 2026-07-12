@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paramètres & Utilisateurs - Gestion Cellules</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 pb-28 sm:pb-24 font-sans antialiased">
+
+  <!-- En-tête -->
+  <header class="border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 z-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center justify-center transition border border-slate-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </a>
+        <div>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">Paramètres Système</h1>
+          <p class="text-xs text-slate-500">Gestion des accès et utilisateurs</p>
+        </div>
+      </div>
+
+      <!-- Badge Admin -->
+      <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 mr-1.5"></span>
+        Accès Admin
+      </span>
+    </div>
+  </header>
+
+  <!-- Contenu Principal -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-6 space-y-6">
+
+    <!-- Section 1 : Créer un nouvel utilisateur -->
+    <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm">
+      <div class="mb-5">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+          </svg>
+          Créer un nouvel utilisateur
+        </h2>
+        <p class="text-xs text-slate-500 mt-0.5">Ajoutez un responsable ou un administrateur pour accéder à l'application.</p>
+      </div>
+
+      <form id="addUserForm" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Nom d'utilisateur -->
+        <div>
+          <label for="newUsername" class="block text-xs font-semibold text-slate-700 mb-1">Nom d'utilisateur</label>
+          <input type="text" id="newUsername" placeholder="Ex: henock_t" required
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none text-sm text-slate-800 placeholder:text-slate-400">
+        </div>
+
+        <!-- Mot de passe -->
+        <div>
+          <label for="newPassword" class="block text-xs font-semibold text-slate-700 mb-1">Mot de passe</label>
+          <input type="password" id="newPassword" placeholder="••••••••" required
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none text-sm text-slate-800 placeholder:text-slate-400">
+        </div>
+
+        <!-- Rôle -->
+        <div>
+          <label for="userRole" class="block text-xs font-semibold text-slate-700 mb-1">Rôle</label>
+          <select id="userRole"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none text-sm text-slate-800 bg-white">
+            <option value="Responsable">Responsable</option>
+            <option value="Administrateur">Administrateur</option>
+          </select>
+        </div>
+
+        <!-- Bouton Ajouter -->
+        <div class="sm:col-span-3 pt-1 flex justify-end">
+          <button type="submit"
+            class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm rounded-xl shadow-md shadow-indigo-100 transition active:scale-[0.99] flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            <span>Enregistrer l'utilisateur</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Section 2 : Liste des utilisateurs -->
+    <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">Comptes enregistrés</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Liste complète des accès au système</p>
+        </div>
+        <span class="text-xs font-semibold px-2.5 py-1 bg-slate-100 text-slate-600 rounded-lg" id="userCount">3 utilisateurs</span>
+      </div>
+
+      <!-- Tableau des utilisateurs -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-slate-50 border-b border-slate-200/80 text-slate-500 font-semibold uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="py-3 px-4 sm:px-6">Utilisateur</th>
+              <th class="py-3 px-4">Mot de passe</th>
+              <th class="py-3 px-4">Rôle</th>
+              <th class="py-3 px-4 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100" id="usersTableBody">
+
+            <!-- Utilisateur 1 (Admin) -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">
+                  AD
+                </div>
+                admin
+              </td>
+              <td class="py-3.5 px-4 text-slate-600 font-mono">
+                <span class="password-text">••••••••</span>
+                <button type="button" onclick="togglePassword(this, '1234')" class="ml-2 text-indigo-600 hover:underline text-[11px]">Afficher</button>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                  Administrateur
+                </span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <span class="text-xs text-slate-400 italic">Compte principal</span>
+              </td>
+            </tr>
+
+            <!-- Utilisateur 2 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs">
+                  JM
+                </div>
+                jean_marc
+              </td>
+              <td class="py-3.5 px-4 text-slate-600 font-mono">
+                <span class="password-text">••••••••</span>
+                <button type="button" onclick="togglePassword(this, 'cellule2026')" class="ml-2 text-indigo-600 hover:underline text-[11px]">Afficher</button>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+                  Responsable
+                </span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <button onclick="deleteUser(this)" class="text-red-500 hover:text-red-700 font-medium text-xs hover:underline">Supprimer</button>
+              </td>
+            </tr>
+
+            <!-- Utilisateur 3 -->
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs">
+                  SA
+                </div>
+                sarah_b
+              </td>
+              <td class="py-3.5 px-4 text-slate-600 font-mono">
+                <span class="password-text">••••••••</span>
+                <button type="button" onclick="togglePassword(this, 'siloe123')" class="ml-2 text-indigo-600 hover:underline text-[11px]">Afficher</button>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+                  Responsable
+                </span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <button onclick="deleteUser(this)" class="text-red-500 hover:text-red-700 font-medium text-xs hover:underline">Supprimer</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Navigation fixe en Pied de Page -->
+  <footer class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 py-3 px-4 shadow-lg">
+    <div class="max-w-md mx-auto flex items-center justify-around">
+
+      <!-- Bouton : Soumettre -->
+      <a href="formulaire.html" class="flex flex-col items-center group py-1 px-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-600 group-hover:bg-slate-200 flex items-center justify-center transition border border-slate-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+        <span class="text-[11px] font-medium text-slate-500 mt-1">Soumettre</span>
+      </a>
+
+      <!-- Bouton : Rapports / Tableau de bord -->
+      <a href="index.html" class="flex flex-col items-center group py-1 px-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-600 group-hover:bg-slate-200 flex items-center justify-center transition border border-slate-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <span class="text-[11px] font-medium text-slate-500 mt-1">Rapports</span>
+      </a>
+
+      <!-- Bouton : Paramètres (Actif) -->
+      <a href="settings.html" class="flex flex-col items-center group py-1 px-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-200 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <span class="text-[11px] font-semibold text-indigo-600 mt-1">Paramètres</span>
+      </a>
+
+    </div>
+  </footer>
+
+  <!-- Script d'interaction -->
+  <script>
+    // Afficher ou masquer le mot de passe
+    function togglePassword(btn, realPassword) {
+      const span = btn.previousElementSibling;
+      if (span.innerText === "••••••••") {
+        span.innerText = realPassword;
+        btn.innerText = "Masquer";
+      } else {
+        span.innerText = "••••••••";
+        btn.innerText = "Afficher";
+      }
+    }
+
+    // Supprimer une ligne utilisateur
+    function deleteUser(btn) {
+      if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
+        const row = btn.closest('tr');
+        row.remove();
+        updateCount();
+      }
+    }
+
+    // Mettre à jour le compteur d'utilisateurs
+    function updateCount() {
+      const count = document.querySelectorAll('#usersTableBody tr').length;
+      document.getElementById('userCount').innerText = `${count} utilisateur${count > 1 ? 's' : ''}`;
+    }
+
+    // Ajouter dynamiquement un utilisateur dans le tableau
+    document.getElementById('addUserForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('newUsername').value.trim();
+      const password = document.getElementById('newPassword').value;
+      const role = document.getElementById('userRole').value;
+
+      if(!username || !password) return;
+
+      const initials = username.substring(0, 2).toUpperCase();
+      const tbody = document.getElementById('usersTableBody');
+      const isAdmin = role === "Administrateur";
+
+      const tr = document.createElement('tr');
+      tr.className = "hover:bg-slate-50/80 transition";
+      tr.innerHTML = `
+        <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900 flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg ${isAdmin ? 'bg-indigo-100 text-indigo-700' : 'bg-slate-100 text-slate-700'} flex items-center justify-center font-bold text-xs">
+            ${initials}
+          </div>
+          ${username}
+        </td>
+        <td class="py-3.5 px-4 text-slate-600 font-mono">
+          <span class="password-text">••••••••</span>
+          <button type="button" onclick="togglePassword(this, '${password}')" class="ml-2 text-indigo-600 hover:underline text-[11px]">Afficher</button>
+        </td>
+        <td class="py-3.5 px-4">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold ${isAdmin ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-slate-100 text-slate-700 border border-slate-200'}">
+            ${role}
+          </span>
+        </td>
+        <td class="py-3.5 px-4 text-right">
+          <button onclick="deleteUser(this)" class="text-red-500 hover:text-red-700 font-medium text-xs hover:underline">Supprimer</button>
+        </td>
+      `;
+
+      tbody.appendChild(tr);
+      
+      // Réinitialiser le formulaire
+      this.reset();
+      updateCount();
+    });
+  </script>
+
+</body>
+</html>
