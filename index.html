@@ -62,6 +62,24 @@
     </div>
 
   </div>
+  <script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Empêche l'envoi classique du formulaire
+    
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+
+    // Vérification des identifiants par défaut
+    if (username === "admin" && password === "1234") {
+      // Sauvegarde de la session
+      localStorage.setItem("isLoggedIn", "true");
+      // Redirection vers le tableau de bord
+      window.location.href = "dashboard.html"; // Remplace par index.html si tu as utilisé l'Option 1
+    } else {
+      alert("Nom d'utilisateur ou mot de passe incorrect !");
+    }
+  });
+</script>
 
 </body>
 </html>
