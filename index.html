@@ -3,145 +3,216 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestion des Cellules</title>
+  <title>Tableau de bord - Cellules</title>
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-50 min-h-screen text-slate-800 pb-24 sm:pb-8 font-sans antialiased">
+<body class="bg-slate-900 min-h-screen text-slate-100 pb-28 sm:pb-24 font-sans antialiased relative selection:bg-indigo-500 selection:text-white">
 
-  <!-- En-tête / Navbar haut -->
-  <header class="bg-white border-b border-slate-200/80 sticky top-0 z-10 backdrop-blur-md bg-white/90">
+  <!-- Arrière-plan décoratif avec dégradés flous -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-emerald-600/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- En-tête -->
+  <header class="relative z-10 border-b border-slate-800/80 bg-slate-900/80 backdrop-blur-xl sticky top-0">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold shadow-md shadow-indigo-200">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-500/25">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H7" />
           </svg>
         </div>
         <div>
-          <h1 class="text-lg font-bold text-slate-900 leading-tight">Gestion Cellules</h1>
-          <p class="text-xs text-slate-500">Espace d'administration</p>
+          <h1 class="text-lg font-bold bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">Gestion Cellules</h1>
+          <p class="text-xs text-indigo-400 font-medium">Tableau de bord</p>
         </div>
       </div>
-      <!-- Indicateur d'état -->
-      <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
-        En ligne
+
+      <!-- Badge statut synchro -->
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-ping"></span>
+        BD Connectée
       </span>
     </div>
   </header>
 
-  <!-- Contenu principal -->
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10">
+  <!-- Contenu Principal -->
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8">
     
-    <!-- Bannière de bienvenue -->
-    <div class="bg-gradient-to-br from-indigo-600 via-indigo-700 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl mb-8 relative overflow-hidden">
+    <!-- Bannière d'accueil vibrant -->
+    <div class="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-6 sm:p-8 text-white shadow-2xl shadow-indigo-900/40 overflow-hidden mb-8 border border-white/10">
       <div class="relative z-10 max-w-lg">
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">Bienvenue sur l'application</h2>
-        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed">
-          Enregistrez les comptes rendus de vos réunions de cellule, consultez les rapports archivés ou configurez l'application.
+        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-3 tracking-wide uppercase text-indigo-100">
+          Activité du mois
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight mb-2">Suivi des Réunions</h2>
+        <p class="text-indigo-100 text-xs sm:text-sm leading-relaxed opacity-95">
+          Consultez les derniers comptes rendus enregistrés ou utilisez la barre de navigation en bas pour soumettre un nouveau rapport.
         </p>
       </div>
-      <!-- Motif décoratif en arrière-plan -->
-      <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+      <!-- Formes géométriques décoratives -->
+      <div class="absolute -right-6 -bottom-10 w-48 h-48 bg-pink-500/30 rounded-full blur-xl pointer-events-none"></div>
+      <div class="absolute right-20 -top-10 w-32 h-32 bg-indigo-400/20 rounded-full blur-lg pointer-events-none"></div>
     </div>
 
-    <!-- Titre de section -->
-    <div class="mb-4">
-      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Actions principales</h3>
-    </div>
-
-    <!-- Grille des fonctionnalités -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-
-      <!-- Carte 1 : Soumettre -->
-      <a href="formulaire.html" 
-         class="group bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-indigo-300 transition-all duration-300 flex flex-col justify-between">
+    <!-- Section : Rapports Récents -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
         <div>
-          <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-            </svg>
-          </div>
-          <h4 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-indigo-600 transition">Soumettre un rapport</h4>
-          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">Remplissez le formulaire pour enregistrer les données d'une nouvelle rencontre.</p>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+            Rapports récents
+          </h3>
+          <p class="text-xs text-slate-400">Dernières données enregistrées dans la base</p>
         </div>
-        <div class="mt-6 flex items-center text-xs font-semibold text-indigo-600 group-hover:translate-x-1 transition-transform">
-          <span>Ouvrir le formulaire</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </a>
+        <span class="text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-lg border border-indigo-500/20">3 récents</span>
+      </div>
 
-      <!-- Carte 2 : Rapports soumis -->
-      <a href="#" 
-         class="group bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <h4 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition">Rapports soumis</h4>
-          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">Consultez l'historique complet, les statistiques et les enregistrements passés.</p>
-        </div>
-        <div class="mt-6 flex items-center text-xs font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">
-          <span>Voir l'historique</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </a>
+      <!-- Liste des cartes de rapports -->
+      <div class="space-y-3">
 
-      <!-- Carte 3 : Paramètres -->
-      <a href="#" 
-         class="group bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-slate-400 transition-all duration-300 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-slate-800 group-hover:text-white transition-all duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </div>
-          <h4 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-slate-800 transition">Paramètres</h4>
-          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">Gérez la connexion à la base de données, votre profil et vos préférences.</p>
-        </div>
-        <div class="mt-6 flex items-center text-xs font-semibold text-slate-700 group-hover:translate-x-1 transition-transform">
-          <span>Ajuster les options</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </a>
+        <!-- Rapport 1 -->
+        <div class="bg-slate-800/60 hover:bg-slate-800 backdrop-blur-md border border-slate-700/60 hover:border-indigo-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-300 shadow-lg group">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-bold text-white text-base">Bethanie 1</h4>
+                  <span class="text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/20">Validé</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5"><span class="text-slate-300 font-medium">Thème :</span> La puissance de la foi</p>
+                <p class="text-xs text-slate-500 mt-0.5">Pr. Jean-Marc • 17h00 - 18h30</p>
+              </div>
+            </div>
 
-    </div>
+            <!-- Stats rapides -->
+            <div class="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-slate-700/50 pt-2 sm:pt-0 text-xs">
+              <div class="text-left sm:text-right">
+                <span class="block text-slate-400 text-[10px]">Effectif</span>
+                <span class="font-bold text-slate-200">24 pers. <span class="text-indigo-400 text-[10px]">(+3 nov.)</span></span>
+              </div>
+              <div class="text-right">
+                <span class="block text-slate-400 text-[10px]">Offrandes</span>
+                <span class="font-bold text-emerald-400">45.00 $</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rapport 2 -->
+        <div class="bg-slate-800/60 hover:bg-slate-800 backdrop-blur-md border border-slate-700/60 hover:border-purple-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-300 shadow-lg group">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-bold text-white text-base">Siloé Centre</h4>
+                  <span class="text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/20">Validé</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5"><span class="text-slate-300 font-medium">Thème :</span> Marcher dans l'amour</p>
+                <p class="text-xs text-slate-500 mt-0.5">Mme Sarah • 16h30 - 18h00</p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-slate-700/50 pt-2 sm:pt-0 text-xs">
+              <div class="text-left sm:text-right">
+                <span class="block text-slate-400 text-[10px]">Effectif</span>
+                <span class="font-bold text-slate-200">18 pers. <span class="text-purple-400 text-[10px]">(+1 nov.)</span></span>
+              </div>
+              <div class="text-right">
+                <span class="block text-slate-400 text-[10px]">Offrandes</span>
+                <span class="font-bold text-emerald-400">30.00 $</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rapport 3 -->
+        <div class="bg-slate-800/60 hover:bg-slate-800 backdrop-blur-md border border-slate-700/60 hover:border-amber-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-300 shadow-lg group">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-bold text-white text-base">Eben-Ezer</h4>
+                  <span class="text-[10px] font-semibold bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded-md border border-amber-500/20">En attente</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5"><span class="text-slate-300 font-medium">Thème :</span> La prière d'intercession</p>
+                <p class="text-xs text-slate-500 mt-0.5">Bro. David • 17h00 - 18h15</p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-slate-700/50 pt-2 sm:pt-0 text-xs">
+              <div class="text-left sm:text-right">
+                <span class="block text-slate-400 text-[10px]">Effectif</span>
+                <span class="font-bold text-slate-200">12 pers. <span class="text-slate-500 text-[10px]">(0 nov.)</span></span>
+              </div>
+              <div class="text-right">
+                <span class="block text-slate-400 text-[10px]">Offrandes</span>
+                <span class="font-bold text-emerald-400">15.50 $</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- Barre de navigation inférieure (Mobile uniquement) -->
-  <nav class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-slate-200 py-2 px-6 z-20">
-    <div class="flex justify-around items-center">
-      <a href="formulaire.html" class="flex flex-col items-center text-indigo-600 font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-        </svg>
-        <span class="text-[10px] mt-1">Soumettre</span>
+  <!-- Barre de Navigation Fixe en Pied de Page (Boutons uniques) -->
+  <footer class="fixed bottom-0 left-0 right-0 z-30 bg-slate-900/90 backdrop-blur-xl border-t border-slate-800 py-3 px-4 sm:px-8 shadow-2xl">
+    <div class="max-w-md mx-auto flex items-center justify-around">
+
+      <!-- Bouton : Soumettre -->
+      <a href="formulaire.html" class="flex flex-col items-center group relative py-1 px-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-all duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+        <span class="text-[11px] font-semibold text-indigo-400 mt-1">Soumettre</span>
       </a>
-      <a href="#" class="flex flex-col items-center text-slate-400 hover:text-slate-600 font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-        <span class="text-[10px] mt-1">Rapports</span>
+
+      <!-- Bouton : Historique / Rapports -->
+      <a href="#" class="flex flex-col items-center group py-1 px-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 group-hover:text-purple-400 group-hover:bg-slate-700 flex items-center justify-center transition-all duration-200 border border-slate-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <span class="text-[11px] font-medium text-slate-400 group-hover:text-purple-400 mt-1 transition">Rapports</span>
       </a>
-      <a href="#" class="flex flex-col items-center text-slate-400 hover:text-slate-600 font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-        <span class="text-[10px] mt-1">Options</span>
+
+      <!-- Bouton : Paramètres -->
+      <a href="#" class="flex flex-col items-center group py-1 px-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 group-hover:text-pink-400 group-hover:bg-slate-700 flex items-center justify-center transition-all duration-200 border border-slate-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <span class="text-[11px] font-medium text-slate-400 group-hover:text-pink-400 mt-1 transition">Paramètres</span>
       </a>
+
     </div>
-  </nav>
+  </footer>
 
 </body>
 </html>
