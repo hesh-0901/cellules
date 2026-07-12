@@ -7,208 +7,185 @@
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 min-h-screen text-slate-100 pb-28 sm:pb-24 font-sans antialiased relative selection:bg-indigo-500 selection:text-white">
-
-  <!-- Arrière-plan décoratif avec dégradés flous -->
-  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-    <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"></div>
-    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-emerald-600/15 rounded-full blur-3xl"></div>
-  </div>
+<body class="bg-slate-50 min-h-screen text-slate-800 pb-28 sm:pb-24 font-sans antialiased">
 
   <!-- En-tête -->
-  <header class="relative z-10 border-b border-slate-800/80 bg-slate-900/80 backdrop-blur-xl sticky top-0">
+  <header class="border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 z-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-500/25">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H7" />
           </svg>
         </div>
         <div>
-          <h1 class="text-lg font-bold bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">Gestion Cellules</h1>
-          <p class="text-xs text-indigo-400 font-medium">Tableau de bord</p>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">Gestion Cellules</h1>
+          <p class="text-xs text-slate-500">Tableau de bord</p>
         </div>
       </div>
 
       <!-- Badge statut synchro -->
-      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-ping"></span>
+      <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
         BD Connectée
       </span>
     </div>
   </header>
 
   <!-- Contenu Principal -->
-  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
     
-    <!-- Bannière d'accueil vibrant -->
-    <div class="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-6 sm:p-8 text-white shadow-2xl shadow-indigo-900/40 overflow-hidden mb-8 border border-white/10">
-      <div class="relative z-10 max-w-lg">
-        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-3 tracking-wide uppercase text-indigo-100">
-          Activité du mois
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-black tracking-tight mb-2">Suivi des Réunions</h2>
-        <p class="text-indigo-100 text-xs sm:text-sm leading-relaxed opacity-95">
-          Consultez les derniers comptes rendus enregistrés ou utilisez la barre de navigation en bas pour soumettre un nouveau rapport.
-        </p>
+    <!-- En-tête de section résumé -->
+    <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 mb-1 block">Aperçu global</span>
+        <h2 class="text-xl font-bold text-slate-900">Rapports récents</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Dernières réunions de cellule enregistrées</p>
       </div>
-      <!-- Formes géométriques décoratives -->
-      <div class="absolute -right-6 -bottom-10 w-48 h-48 bg-pink-500/30 rounded-full blur-xl pointer-events-none"></div>
-      <div class="absolute right-20 -top-10 w-32 h-32 bg-indigo-400/20 rounded-full blur-lg pointer-events-none"></div>
+      <div class="flex items-center gap-3">
+        <div class="bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-center">
+          <span class="block text-[10px] uppercase font-bold text-slate-400">Ce mois</span>
+          <span class="text-sm font-bold text-slate-800">12 rapports</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Section : Rapports Récents -->
-    <section>
-      <div class="flex items-center justify-between mb-4">
-        <div>
-          <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-            Rapports récents
-          </h3>
-          <p class="text-xs text-slate-400">Dernières données enregistrées dans la base</p>
+    <!-- Liste des cartes de rapports récents -->
+    <section class="space-y-3">
+
+      <!-- Rapport 1 -->
+      <div class="bg-white hover:border-slate-300 border border-slate-200/90 rounded-2xl p-4 sm:p-5 transition shadow-sm group">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-slate-900 group-hover:text-white transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-slate-900 text-base">Bethanie 1</h3>
+                <span class="text-[10px] font-semibold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200">Validé</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-1"><span class="font-medium text-slate-800">Thème :</span> La puissance de la foi</p>
+              <p class="text-xs text-slate-400 mt-0.5">Pr. Jean-Marc • 17h00 - 18h30</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between sm:justify-end gap-5 border-t sm:border-t-0 border-slate-100 pt-2.5 sm:pt-0 text-xs">
+            <div class="text-left sm:text-right">
+              <span class="block text-slate-400 text-[10px]">Effectif</span>
+              <span class="font-semibold text-slate-800">24 pers. <span class="text-indigo-600 text-[10px] font-normal">(+3 nov.)</span></span>
+            </div>
+            <div class="text-right">
+              <span class="block text-slate-400 text-[10px]">Offrandes</span>
+              <span class="font-bold text-slate-900">45.00 $</span>
+            </div>
+          </div>
         </div>
-        <span class="text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-lg border border-indigo-500/20">3 récents</span>
       </div>
 
-      <!-- Liste des cartes de rapports -->
-      <div class="space-y-3">
-
-        <!-- Rapport 1 -->
-        <div class="bg-slate-800/60 hover:bg-slate-800 backdrop-blur-md border border-slate-700/60 hover:border-indigo-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-300 shadow-lg group">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 group-hover:bg-indigo-500 group-hover:text-white transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <div>
-                <div class="flex items-center gap-2">
-                  <h4 class="font-bold text-white text-base">Bethanie 1</h4>
-                  <span class="text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/20">Validé</span>
-                </div>
-                <p class="text-xs text-slate-400 mt-0.5"><span class="text-slate-300 font-medium">Thème :</span> La puissance de la foi</p>
-                <p class="text-xs text-slate-500 mt-0.5">Pr. Jean-Marc • 17h00 - 18h30</p>
-              </div>
+      <!-- Rapport 2 -->
+      <div class="bg-white hover:border-slate-300 border border-slate-200/90 rounded-2xl p-4 sm:p-5 transition shadow-sm group">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-slate-900 group-hover:text-white transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
             </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-slate-900 text-base">Siloé Centre</h3>
+                <span class="text-[10px] font-semibold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200">Validé</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-1"><span class="font-medium text-slate-800">Thème :</span> Marcher dans l'amour</p>
+              <p class="text-xs text-slate-400 mt-0.5">Mme Sarah • 16h30 - 18h00</p>
+            </div>
+          </div>
 
-            <!-- Stats rapides -->
-            <div class="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-slate-700/50 pt-2 sm:pt-0 text-xs">
-              <div class="text-left sm:text-right">
-                <span class="block text-slate-400 text-[10px]">Effectif</span>
-                <span class="font-bold text-slate-200">24 pers. <span class="text-indigo-400 text-[10px]">(+3 nov.)</span></span>
-              </div>
-              <div class="text-right">
-                <span class="block text-slate-400 text-[10px]">Offrandes</span>
-                <span class="font-bold text-emerald-400">45.00 $</span>
-              </div>
+          <div class="flex items-center justify-between sm:justify-end gap-5 border-t sm:border-t-0 border-slate-100 pt-2.5 sm:pt-0 text-xs">
+            <div class="text-left sm:text-right">
+              <span class="block text-slate-400 text-[10px]">Effectif</span>
+              <span class="font-semibold text-slate-800">18 pers. <span class="text-indigo-600 text-[10px] font-normal">(+1 nov.)</span></span>
+            </div>
+            <div class="text-right">
+              <span class="block text-slate-400 text-[10px]">Offrandes</span>
+              <span class="font-bold text-slate-900">30.00 $</span>
             </div>
           </div>
         </div>
-
-        <!-- Rapport 2 -->
-        <div class="bg-slate-800/60 hover:bg-slate-800 backdrop-blur-md border border-slate-700/60 hover:border-purple-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-300 shadow-lg group">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 group-hover:bg-purple-500 group-hover:text-white transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <div>
-                <div class="flex items-center gap-2">
-                  <h4 class="font-bold text-white text-base">Siloé Centre</h4>
-                  <span class="text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-md border border-emerald-500/20">Validé</span>
-                </div>
-                <p class="text-xs text-slate-400 mt-0.5"><span class="text-slate-300 font-medium">Thème :</span> Marcher dans l'amour</p>
-                <p class="text-xs text-slate-500 mt-0.5">Mme Sarah • 16h30 - 18h00</p>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-slate-700/50 pt-2 sm:pt-0 text-xs">
-              <div class="text-left sm:text-right">
-                <span class="block text-slate-400 text-[10px]">Effectif</span>
-                <span class="font-bold text-slate-200">18 pers. <span class="text-purple-400 text-[10px]">(+1 nov.)</span></span>
-              </div>
-              <div class="text-right">
-                <span class="block text-slate-400 text-[10px]">Offrandes</span>
-                <span class="font-bold text-emerald-400">30.00 $</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Rapport 3 -->
-        <div class="bg-slate-800/60 hover:bg-slate-800 backdrop-blur-md border border-slate-700/60 hover:border-amber-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-300 shadow-lg group">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-white transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <div class="flex items-center gap-2">
-                  <h4 class="font-bold text-white text-base">Eben-Ezer</h4>
-                  <span class="text-[10px] font-semibold bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded-md border border-amber-500/20">En attente</span>
-                </div>
-                <p class="text-xs text-slate-400 mt-0.5"><span class="text-slate-300 font-medium">Thème :</span> La prière d'intercession</p>
-                <p class="text-xs text-slate-500 mt-0.5">Bro. David • 17h00 - 18h15</p>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 border-slate-700/50 pt-2 sm:pt-0 text-xs">
-              <div class="text-left sm:text-right">
-                <span class="block text-slate-400 text-[10px]">Effectif</span>
-                <span class="font-bold text-slate-200">12 pers. <span class="text-slate-500 text-[10px]">(0 nov.)</span></span>
-              </div>
-              <div class="text-right">
-                <span class="block text-slate-400 text-[10px]">Offrandes</span>
-                <span class="font-bold text-emerald-400">15.50 $</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Rapport 3 -->
+      <div class="bg-white hover:border-slate-300 border border-slate-200/90 rounded-2xl p-4 sm:p-5 transition shadow-sm group">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-slate-900 group-hover:text-white transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-slate-900 text-base">Eben-Ezer</h3>
+                <span class="text-[10px] font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded border border-amber-200">En attente</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-1"><span class="font-medium text-slate-800">Thème :</span> La prière d'intercession</p>
+              <p class="text-xs text-slate-400 mt-0.5">Bro. David • 17h00 - 18h15</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between sm:justify-end gap-5 border-t sm:border-t-0 border-slate-100 pt-2.5 sm:pt-0 text-xs">
+            <div class="text-left sm:text-right">
+              <span class="block text-slate-400 text-[10px]">Effectif</span>
+              <span class="font-semibold text-slate-800">12 pers. <span class="text-slate-400 text-[10px] font-normal">(0 nov.)</span></span>
+            </div>
+            <div class="text-right">
+              <span class="block text-slate-400 text-[10px]">Offrandes</span>
+              <span class="font-bold text-slate-900">15.50 $</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   </main>
 
-  <!-- Barre de Navigation Fixe en Pied de Page (Boutons uniques) -->
-  <footer class="fixed bottom-0 left-0 right-0 z-30 bg-slate-900/90 backdrop-blur-xl border-t border-slate-800 py-3 px-4 sm:px-8 shadow-2xl">
+  <!-- Navigation fixe en Pied de Page (Pieds de page sobres) -->
+  <footer class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 py-3 px-4 shadow-lg">
     <div class="max-w-md mx-auto flex items-center justify-around">
 
       <!-- Bouton : Soumettre -->
-      <a href="formulaire.html" class="flex flex-col items-center group relative py-1 px-3">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-all duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <a href="formulaire.html" class="flex flex-col items-center group py-1 px-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-200 group-hover:bg-indigo-700 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
           </svg>
         </div>
-        <span class="text-[11px] font-semibold text-indigo-400 mt-1">Soumettre</span>
+        <span class="text-[11px] font-semibold text-indigo-600 mt-1">Soumettre</span>
       </a>
 
       <!-- Bouton : Historique / Rapports -->
       <a href="#" class="flex flex-col items-center group py-1 px-3">
-        <div class="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 group-hover:text-purple-400 group-hover:bg-slate-700 flex items-center justify-center transition-all duration-200 border border-slate-700">
+        <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-600 group-hover:bg-slate-200 flex items-center justify-center transition border border-slate-200">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
         </div>
-        <span class="text-[11px] font-medium text-slate-400 group-hover:text-purple-400 mt-1 transition">Rapports</span>
+        <span class="text-[11px] font-medium text-slate-500 mt-1">Rapports</span>
       </a>
 
       <!-- Bouton : Paramètres -->
       <a href="#" class="flex flex-col items-center group py-1 px-3">
-        <div class="w-10 h-10 rounded-xl bg-slate-800 text-slate-400 group-hover:text-pink-400 group-hover:bg-slate-700 flex items-center justify-center transition-all duration-200 border border-slate-700">
+        <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-600 group-hover:bg-slate-200 flex items-center justify-center transition border border-slate-200">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
         </div>
-        <span class="text-[11px] font-medium text-slate-400 group-hover:text-pink-400 mt-1 transition">Paramètres</span>
+        <span class="text-[11px] font-medium text-slate-500 mt-1">Paramètres</span>
       </a>
 
     </div>
