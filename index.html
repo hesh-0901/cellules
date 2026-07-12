@@ -78,17 +78,17 @@
         </div>
       </div>
 
-      <!-- Horaires (1 colonne sur mobile, 2 sur écrans plus larges) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-        <div>
-          <label for="heure_debut" class="block text-sm font-semibold text-slate-700 mb-1">Heure de début</label>
+      <!-- Horaires côte à côte sans chevauchement sur iOS -->
+      <div class="grid grid-cols-2 gap-2 sm:gap-4 min-w-0">
+        <div class="min-w-0">
+          <label for="heure_debut" class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1 truncate">Heure de début</label>
           <input type="time" id="heure_debut" name="heure_debut" required
-            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition text-base bg-white appearance-none min-w-0">
+            class="w-full px-2 sm:px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition text-sm sm:text-base bg-white text-center appearance-none box-border">
         </div>
-        <div>
-          <label for="heure_fin" class="block text-sm font-semibold text-slate-700 mb-1">Heure de fin</label>
+        <div class="min-w-0">
+          <label for="heure_fin" class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1 truncate">Heure de fin</label>
           <input type="time" id="heure_fin" name="heure_fin" required
-            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition text-base bg-white appearance-none min-w-0">
+            class="w-full px-2 sm:px-4 py-3 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition text-sm sm:text-base bg-white text-center appearance-none box-border">
         </div>
       </div>
 
